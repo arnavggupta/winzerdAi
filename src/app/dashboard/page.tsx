@@ -1,9 +1,18 @@
-import Sidebar from "../../Components/Sidebar"
+"use client";
 
+import Sidebar from "../../Components/Sidebar"
+import DrawerSideBar from '@/Components/DrawerSideBar.1';
+import { useState } from "react";
 export default function Dashboard() {
+const [drawerState,setDrawerState]= useState(true);
+
+
+
   return (
     <div className="flex m-3 space-x-3">
-      <Sidebar/>
+   
+<DrawerSideBar val={drawerState} setval={setDrawerState}  />
+   {drawerState ? <Sidebar/> :<div></div>}
       <div className="flex-1">
         <header className="flex justify-between items-center p-4 bg-blue-600 text-white">
           <div className="text-lg font-bold">Dashboard</div>
